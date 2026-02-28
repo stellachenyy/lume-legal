@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lume Legal</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --panel: #fffdf9;
+      --fg: #1f2937;
+      --muted: #6b7280;
+      --border: #e7dccb;
+      --accent: #9a3412;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top right, #f4e6d4 0, transparent 35%),
+        linear-gradient(180deg, #fbf8f3 0%, #f6f3ee 100%);
+      color: var(--fg);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    main {
+      width: min(720px, 100%);
+      background: color-mix(in srgb, var(--panel) 92%, white 8%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 28px;
+      box-shadow: 0 20px 50px rgba(31, 41, 55, 0.08);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      font-weight: 700;
+    }
+    p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+    .intro {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.75);
+      transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+    }
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-2px);
+      border-color: #d6b996;
+      box-shadow: 0 14px 32px rgba(154, 52, 18, 0.08);
+      outline: none;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+    .meta {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="eyebrow">Lume Legal</span>
+    <h1>Legal documents for Lume</h1>
+    <p class="intro">This site hosts the public legal pages for the Lume app. Use the document link below for app store listings or public references.</p>
+    <a class="card" href="./privacy-policy/">
+      <h2>Privacy Policy</h2>
+      <p>View the current privacy policy for Lume.</p>
+    </a>
+    <p class="meta">Preferred privacy policy URL: <a href="./privacy-policy/">/privacy-policy/</a></p>
+  </main>
+</body>
+</html>

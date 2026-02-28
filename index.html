@@ -3,99 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lume Legal</title>
+  <title>Lume — Privacy Policy</title>
   <style>
     :root {
-      --bg: #f6f3ee;
-      --panel: #fffdf9;
-      --fg: #1f2937;
-      --muted: #6b7280;
-      --border: #e7dccb;
-      --accent: #9a3412;
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --muted: #666;
+      --border: #e0e0e0;
+      --accent: #2563eb;
     }
-    * { box-sizing: border-box; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --fg: #e5e5e5;
+        --muted: #999;
+        --border: #333;
+        --accent: #60a5fa;
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top right, #f4e6d4 0, transparent 35%),
-        linear-gradient(180deg, #fbf8f3 0%, #f6f3ee 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
       color: var(--fg);
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    main {
-      width: min(720px, 100%);
-      background: color-mix(in srgb, var(--panel) 92%, white 8%);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px 28px;
-      box-shadow: 0 20px 50px rgba(31, 41, 55, 0.08);
-    }
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      font-weight: 700;
-    }
-    p {
-      margin: 0;
       line-height: 1.7;
-      font-size: 1rem;
+      padding: 2rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
     }
-    .intro {
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .card {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.75);
-      transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
-    }
-    .card:hover,
-    .card:focus-visible {
-      transform: translateY(-2px);
-      border-color: #d6b996;
-      box-shadow: 0 14px 32px rgba(154, 52, 18, 0.08);
-      outline: none;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h2 {
-      margin: 0 0 6px;
-      font-size: 1.35rem;
-    }
-    .meta {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    p, li { margin-bottom: 0.6rem; }
+    ul { padding-left: 1.5rem; }
+    .subtitle { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border: 1px solid var(--border); }
+    th { background: var(--border); font-weight: 600; }
+    a { color: var(--accent); }
+    .footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
   </style>
 </head>
 <body>
-  <main>
-    <span class="eyebrow">Lume Legal</span>
-    <h1>Legal documents for Lume</h1>
-    <p class="intro">This site hosts the public legal pages for the Lume app. Use the document link below for app store listings or public references.</p>
-    <a class="card" href="./privacy-policy/">
-      <h2>Privacy Policy</h2>
-      <p>View the current privacy policy for Lume.</p>
-    </a>
-    <p class="meta">Preferred privacy policy URL: <a href="./privacy-policy/">/privacy-policy/</a></p>
-  </main>
+
+<h1>Privacy Policy</h1>
+<p class="subtitle">Lume — AI Health from Tongue Analysis<br>Effective date: February 27, 2026 &middot; Last updated: February 27, 2026</p>
+
+<p>Lume ("we", "us", "our") is an iOS application developed by an independent developer. This policy explains what data we collect, why, how we protect it, and your rights.</p>
+
+<h2>1. Data We Collect</h2>
+
+<h3>1.1 Tongue Photos</h3>
+<p>When you take or select a photo, we use it solely for health analysis. Photos are:</p>
+<ul>
+  <li>Compressed and sent to our server, which forwards them to AI providers (OpenAI, Alibaba Cloud / Qwen) for processing.</li>
+  <li>Stored locally on your device in an encrypted container (iOS file protection "Complete").</li>
+  <li><strong>Not</strong> stored on our server. Only the structured analysis result (text/JSON) is saved server-side, never the raw image.</li>
+</ul>
+
+<h3>1.2 Health Analysis Data</h3>
+<p>Each analysis produces a structured report containing tongue observations, Traditional Chinese Medicine (TCM) insights, health scores, and dietary recommendations. This data is:</p>
+<ul>
+  <li>Stored locally on your device.</li>
+  <li>Synced to our server (hosted on Fly.io) so you can access your history across sessions and restore it if you reinstall.</li>
+</ul>
+
+<h3>1.3 Account Information</h3>
+<p>To use Lume you sign in with Apple or Google. We receive:</p>
+<ul>
+  <li><strong>A provider-scoped identifier</strong> (e.g., Apple's "sub" claim) — this is your account ID.</li>
+  <li><strong>Email address</strong> (optional — Apple lets you hide it). Used only to display in your settings; we do not send marketing emails.</li>
+  <li><strong>Display name</strong> (if you set one in-app).</li>
+</ul>
+<p>We do <strong>not</strong> receive or store your Apple/Google password.</p>
+
+<h3>1.4 App Metadata</h3>
+<p>On sign-in we record basic device context: app version, build number, iOS version, and platform ("ios"). This helps us debug issues.</p>
+
+<h3>1.5 Usage Quotas</h3>
+<p>We log which API endpoints you call and when (e.g., "analysis at 2026-02-27T10:00Z") to enforce free and Pro usage limits. These logs contain your account ID and a timestamp — no health content.</p>
+
+<h3>1.6 Purchase Information</h3>
+<p>Subscriptions are processed by Apple through the App Store and managed via <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat</a>. We receive your entitlement status (Pro or Free) and expiration date. We do <strong>not</strong> see your payment method, credit card number, or billing address.</p>
+
+<h2>2. Data We Do Not Collect</h2>
+<ul>
+  <li>Location data</li>
+  <li>Contacts or address book</li>
+  <li>Advertising identifier (IDFA) — we do not use ad tracking</li>
+  <li>Third-party analytics (no Firebase, Mixpanel, Segment, or similar SDKs)</li>
+  <li>Browsing history</li>
+</ul>
+
+<h2>3. How We Use Your Data</h2>
+<table>
+  <thead>
+    <tr><th>Purpose</th><th>Data used</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Generate tongue health analysis</td><td>Tongue photo, analysis history (for trend context)</td></tr>
+    <tr><td>Personalized chat (Spirits Lounge)</td><td>Recent analysis summaries</td></tr>
+    <tr><td>Weekly health summary</td><td>Past 7 days of analysis records</td></tr>
+    <tr><td>Enforce usage quotas</td><td>Account ID, timestamps</td></tr>
+    <tr><td>Manage subscriptions</td><td>Account ID, RevenueCat entitlement status</td></tr>
+    <tr><td>Debug and improve the app</td><td>App metadata (version, OS); server error logs (redacted)</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Third-Party Services</h2>
+<p>Your data passes through these services when you use Lume:</p>
+<table>
+  <thead>
+    <tr><th>Service</th><th>What they receive</th><th>Their privacy policy</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenAI</td>
+      <td>Tongue photo (for validation &amp; analysis), text prompts</td>
+      <td><a href="https://openai.com/privacy" target="_blank" rel="noopener">openai.com/privacy</a></td>
+    </tr>
+    <tr>
+      <td>Alibaba Cloud (Qwen)</td>
+      <td>Tongue photo (for analysis), text prompts</td>
+      <td><a href="https://qwen.ai/privacypolicy" target="_blank" rel="noopener">qwen.ai/privacypolicy</a></td>
+    </tr>
+    <tr>
+      <td>RevenueCat</td>
+      <td>Account ID, entitlement status</td>
+      <td><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></td>
+    </tr>
+    <tr>
+      <td>Apple (Sign in with Apple)</td>
+      <td>Authentication token (verified server-side)</td>
+      <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></td>
+    </tr>
+    <tr>
+      <td>Google (Google Sign-In)</td>
+      <td>Authentication token (verified server-side)</td>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+    </tr>
+    <tr>
+      <td>Fly.io (server hosting)</td>
+      <td>Infrastructure provider — processes requests</td>
+      <td><a href="https://fly.io/legal/privacy-policy/" target="_blank" rel="noopener">fly.io/legal/privacy-policy</a></td>
+    </tr>
+  </tbody>
+</table>
+<p>All data transmitted to these services travels over HTTPS (TLS encryption in transit).</p>
+
+<h2>5. Data Storage &amp; Security</h2>
+<ul>
+  <li><strong>On your device</strong>: Analysis files and photos are stored with iOS "Complete" file protection (encrypted at rest, inaccessible when device is locked). Authentication tokens are stored in the iOS Keychain.</li>
+  <li><strong>On our server</strong>: Analysis records are stored in an encrypted-at-rest database hosted on Fly.io. API keys and secrets are stored as environment variables, never in source code.</li>
+  <li><strong>Server logs</strong>: API keys and authentication tokens are automatically redacted from logs. Account identifiers are truncated. Health analysis content is never logged.</li>
+</ul>
+
+<h2>6. Data Retention</h2>
+<ul>
+  <li><strong>Active account</strong>: Your analysis history is retained as long as your account exists. You can delete individual records at any time.</li>
+  <li><strong>Account deletion</strong>: When you delete your account (Settings → Delete Account), all sessions are revoked immediately. Your account record is soft-deleted on our server. We will permanently purge all associated data within 30 days of deletion.</li>
+  <li><strong>Session tokens</strong>: Expire after 30 days automatically.</li>
+</ul>
+
+<h2>7. Your Rights &amp; Controls</h2>
+<ul>
+  <li><strong>Delete individual records</strong>: Swipe to delete any analysis from your history.</li>
+  <li><strong>Delete your account</strong>: Available in Settings. Removes your data from our server.</li>
+  <li><strong>Sign out</strong>: Revokes your current session and clears local credentials.</li>
+  <li><strong>Camera access</strong>: You can revoke camera permission at any time in iOS Settings. The app will still work for viewing past analyses.</li>
+</ul>
+<p>If you are in the European Economic Area (EEA), you also have the right to access, rectify, port, or erase your personal data under the GDPR. If you are a California resident, you have rights under the CCPA. To exercise any of these rights, contact us at the email below.</p>
+
+<h2>8. Children's Privacy</h2>
+<p>Lume is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with data, please contact us and we will delete it promptly.</p>
+
+<h2>9. Health Disclaimer</h2>
+<p>Lume provides wellness insights based on Traditional Chinese Medicine principles and AI analysis. It is <strong>not</strong> a medical device, does not provide medical diagnoses, and should not replace professional healthcare advice. Always consult a qualified healthcare provider for medical concerns.</p>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this policy from time to time. If we make material changes, we will update the "Last updated" date at the top and, where practical, notify you in-app. Continued use of Lume after changes constitutes acceptance of the updated policy.</p>
+
+<h2>11. Contact</h2>
+<p>Questions or requests about your data? Reach us at:</p>
+<p><strong>Email</strong>: <a href="mailto:lume-privacy@proton.me">lume-privacy@proton.me</a></p>
+
+<div class="footer">
+  <p>&copy; 2026 Lume. All rights reserved.</p>
+</div>
+
 </body>
 </html>

@@ -47,7 +47,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="subtitle">Lume — AI Health from Tongue Analysis<br>Effective date: February 27, 2026 &middot; Last updated: February 27, 2026</p>
+<p class="subtitle">Lume — AI Health from Tongue Analysis<br>Effective date: February 27, 2026 &middot; Last updated: August 3, 2026</p>
 
 <p>Lume ("we", "us", "our") is an iOS application developed by an independent developer. This policy explains what data we collect, why, how we protect it, and your rights.</p>
 
@@ -56,9 +56,9 @@
 <h3>1.1 Tongue Photos</h3>
 <p>When you take or select a photo, we use it solely for health analysis. Photos are:</p>
 <ul>
-  <li>Compressed and sent to our server, which forwards them to AI providers (OpenAI, Alibaba Cloud / Qwen) for processing.</li>
   <li>Stored locally on your device in an encrypted container (iOS file protection "Complete").</li>
-  <li><strong>Not</strong> stored on our server. Only the structured analysis result (text/JSON) is saved server-side, never the raw image.</li>
+  <li>Compressed and transmitted through Lume's server and OpenRouter to Google (Gemini), OpenAI, or Alibaba Cloud (Qwen), as applicable, for validation or health analysis.</li>
+  <li>Included in some asynchronous AI job request payloads as base64-encoded data. These payloads may be retained on our server for up to 90 days and are then deleted.</li>
 </ul>
 
 <h3>1.2 Health Analysis Data</h3>
@@ -102,7 +102,8 @@
   </thead>
   <tbody>
     <tr><td>Generate tongue health analysis</td><td>Tongue photo, analysis history (for trend context)</td></tr>
-    <tr><td>Personalized chat (Spirits Lounge)</td><td>Recent analysis summaries</td></tr>
+    <tr><td>Personalized chat and topic gating (Spirits Lounge)</td><td>Text prompts, recent analysis summaries and history</td></tr>
+    <tr><td>Personalized welcome messages</td><td>Analysis summaries and history</td></tr>
     <tr><td>Weekly health summary</td><td>Past 7 days of analysis records</td></tr>
     <tr><td>Enforce usage quotas</td><td>Account ID, timestamps</td></tr>
     <tr><td>Manage subscriptions</td><td>Account ID, RevenueCat entitlement status</td></tr>
@@ -118,13 +119,23 @@
   </thead>
   <tbody>
     <tr>
+      <td>OpenRouter</td>
+      <td>Tongue photos, health-analysis context, and text prompts routed to the applicable AI provider</td>
+      <td><a href="https://openrouter.ai/privacy" target="_blank" rel="noopener">openrouter.ai/privacy</a></td>
+    </tr>
+    <tr>
+      <td>Google (Gemini)</td>
+      <td>Tongue photos for validation and health analysis in current and new app builds; text prompts, analysis summaries, and relevant history for Spirits Lounge chat and topic gating, personalized welcome messages, and weekly summaries</td>
+      <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+    </tr>
+    <tr>
       <td>OpenAI</td>
-      <td>Tongue photo (for validation &amp; analysis), text prompts</td>
+      <td>Tongue photo and validation prompt, only when used as the automatic one-shot fallback after an infrastructure failure on the primary validation route</td>
       <td><a href="https://openai.com/privacy" target="_blank" rel="noopener">openai.com/privacy</a></td>
     </tr>
     <tr>
       <td>Alibaba Cloud (Qwen)</td>
-      <td>Tongue photo (for analysis), text prompts</td>
+      <td>Tongue photos, prompts, and relevant analysis history for health analysis requested by older released app versions</td>
       <td><a href="https://qwen.ai/privacypolicy" target="_blank" rel="noopener">qwen.ai/privacypolicy</a></td>
     </tr>
     <tr>
@@ -150,25 +161,27 @@
   </tbody>
 </table>
 <p>All data transmitted to these services travels over HTTPS (TLS encryption in transit).</p>
+<p>For AI requests routed through OpenRouter, Lume uses routing controls intended to prevent selection of provider routes that may train on submitted data. These controls limit route selection; each third party's own terms and privacy practices still apply.</p>
 
 <h2>5. Data Storage &amp; Security</h2>
 <ul>
   <li><strong>On your device</strong>: Analysis files and photos are stored with iOS "Complete" file protection (encrypted at rest, inaccessible when device is locked). Authentication tokens are stored in the iOS Keychain.</li>
-  <li><strong>On our server</strong>: Analysis records are stored in an encrypted-at-rest database hosted on Fly.io. API keys and secrets are stored as environment variables, never in source code.</li>
+  <li><strong>On our server</strong>: Structured analysis records and asynchronous AI job request payloads are stored in an encrypted-at-rest database hosted on Fly.io. A job payload may include a base64-encoded tongue photo. API keys and secrets are stored as environment variables, never in source code.</li>
   <li><strong>Server logs</strong>: API keys and authentication tokens are automatically redacted from logs. Account identifiers are truncated. Health analysis content is never logged.</li>
 </ul>
 
 <h2>6. Data Retention</h2>
 <ul>
-  <li><strong>Active account</strong>: Your analysis history is retained as long as your account exists. You can delete individual records at any time.</li>
-  <li><strong>Account deletion</strong>: When you delete your account (Settings → Delete Account), all sessions are revoked immediately. Your account record is soft-deleted on our server. We will permanently purge all associated data within 30 days of deletion.</li>
+  <li><strong>Structured analysis history</strong>: Your analysis history is retained as long as your account exists. You can delete individual records at any time.</li>
+  <li><strong>Asynchronous AI jobs</strong>: Complete job request payloads, which may include a base64-encoded tongue photo, can be retained on our server for up to 90 days and are then deleted.</li>
+  <li><strong>Account deletion</strong>: When you delete your account (Settings → Delete Account), all sessions are revoked immediately and ordinary account and structured analysis data are removed. Retained asynchronous job payloads are subject to the separate job-retention period above and may remain until they expire.</li>
   <li><strong>Session tokens</strong>: Expire after 30 days automatically.</li>
 </ul>
 
 <h2>7. Your Rights &amp; Controls</h2>
 <ul>
   <li><strong>Delete individual records</strong>: Swipe to delete any analysis from your history.</li>
-  <li><strong>Delete your account</strong>: Available in Settings. Removes your data from our server.</li>
+  <li><strong>Delete your account</strong>: Available in Settings. Removes ordinary account and structured analysis data; retained asynchronous job payloads expire separately as described in Section 6.</li>
   <li><strong>Sign out</strong>: Revokes your current session and clears local credentials.</li>
   <li><strong>Camera access</strong>: You can revoke camera permission at any time in iOS Settings. The app will still work for viewing past analyses.</li>
 </ul>

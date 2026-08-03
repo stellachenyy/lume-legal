@@ -47,7 +47,7 @@
 <body>
 
 <h1>Terms of Use</h1>
-<p class="subtitle">Lume — AI Health from Tongue Analysis<br>Effective date: March 13, 2026 &middot; Last updated: March 13, 2026</p>
+<p class="subtitle">Lume — AI Health from Tongue Analysis<br>Effective date: March 13, 2026 &middot; Last updated: August 3, 2026</p>
 
 <p>These Terms of Use ("Terms") govern your use of the Lume mobile application ("App", "Lume", "we", "us", "our"). By downloading, installing, or using Lume, you agree to these Terms. If you do not agree, do not use the App.</p>
 
@@ -113,7 +113,8 @@
 <p>You may delete your account at any time from Settings &gt; Email and Security &gt; "Permanently Delete My Account". Upon deletion:</p>
 <ul>
   <li>All active sessions are revoked immediately.</li>
-  <li>Your account and all associated data on our server will be permanently purged within 30 days.</li>
+  <li>Your ordinary account and structured analysis data are removed from our server.</li>
+  <li>Asynchronous AI job request payloads, which may include a base64-encoded tongue photo, are subject to a separate retention period and may remain for up to 90 days before automatic deletion.</li>
   <li>This action cannot be undone.</li>
   <li>Active subscriptions are not automatically canceled. You must cancel your subscription separately through Apple before deleting your account.</li>
 </ul>
@@ -128,12 +129,14 @@
 <p>We do not use your content for advertising, marketing, or any purpose unrelated to delivering the App's services. See our <a href="../privacy-policy/">Privacy Policy</a> for details on data handling.</p>
 
 <h2>6. Third-Party AI Services</h2>
-<p>Lume uses third-party AI providers to generate health analyses. Your tongue photos and related data are processed by:</p>
+<p>All Lume AI requests pass through OpenRouter, which routes each request to the applicable third-party AI provider. Depending on the feature and app version, your data is processed by:</p>
 <ul>
-  <li><strong>OpenAI</strong> — for tongue image validation and health analysis (<a href="https://openai.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
-  <li><strong>Alibaba Cloud / Qwen</strong> — for health analysis (<a href="https://qwen.ai/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
+  <li><strong>OpenRouter</strong> — receives tongue photos, health-analysis context, and text prompts and routes them to the applicable AI provider (<a href="https://openrouter.ai/privacy" target="_blank" rel="noopener">Privacy Policy</a>).</li>
+  <li><strong>Google (Gemini)</strong> — receives tongue photos for validation and health analysis in current and new app builds, and text prompts, analysis summaries, or relevant history for Spirits Lounge chat and topic gating, personalized welcome messages, and weekly summaries (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>).</li>
+  <li><strong>OpenAI</strong> — receives a tongue photo and validation prompt only as an automatic one-shot fallback when the primary Gemini validation route has an infrastructure failure (<a href="https://openai.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>).</li>
+  <li><strong>Alibaba Cloud (Qwen)</strong> — receives tongue photos, prompts, and relevant analysis history for health analysis requested by older released app versions (<a href="https://qwen.ai/privacypolicy" target="_blank" rel="noopener">Privacy Policy</a>).</li>
 </ul>
-<p>Data is transmitted securely via HTTPS. We do not control how these providers process data beyond their published API terms. By using the App, you acknowledge and consent to this data processing. See our <a href="../privacy-policy/">Privacy Policy</a> for full details.</p>
+<p>Data is transmitted via HTTPS. For requests routed through OpenRouter, Lume uses routing controls intended to prevent selection of provider routes that may train on submitted data. These controls limit route selection; each third party's own terms and privacy practices still apply. By using the App, you acknowledge this processing. See our <a href="../privacy-policy/">Privacy Policy</a> for full details.</p>
 
 <h2>7. Acceptable Use</h2>
 <p>You agree not to:</p>
